@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="kz.kuanysh.alartest.presentation.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_dataListFragment"
+            app:destination="@id/dataListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dataListFragment"
+        android:name="kz.kuanysh.alartest.presentation.data_list.DataListFragment"
+        android:label="fragment_data_list"
+        tools:layout="@layout/fragment_data_list">
+        <action
+            android:id="@+id/action_dataListFragment_to_dataDetailsFragment"
+            app:destination="@id/dataDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="code"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_dataListFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/dataListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataDetailsFragment"
+        android:name="kz.kuanysh.alartest.presentation.data_details.DataDetailsFragment"
+        android:label="fragment_data_details"
+        tools:layout="@layout/fragment_data_details">
+        <argument
+            android:name="item"
+            app:argType="kz.kuanysh.alartest.domain.model.Data$Item" />
+    </fragment>
+</navigation>

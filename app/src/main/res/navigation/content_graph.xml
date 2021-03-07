@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_graph"
+    app:startDestination="@id/dataListFragment">
+
+    <fragment
+        android:id="@+id/dataListFragment"
+        android:name="kz.kuanysh.alartest.presentation.data_list.DataListFragment"
+        android:label="fragment_data_list"
+        tools:layout="@layout/fragment_data_list">
+        <action
+            android:id="@+id/action_dataListFragment_to_dataDetailsFragment"
+            app:destination="@id/dataDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="code"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataDetailsFragment"
+        android:name="kz.kuanysh.alartest.presentation.data_details.DataDetailsFragment"
+        android:label="fragment_data_details"
+        tools:layout="@layout/fragment_data_details" >
+        <argument
+            android:name="item"
+            app:argType="kz.kuanysh.alartest.domain.model.Data$Item" />
+    </fragment>
+</navigation>
